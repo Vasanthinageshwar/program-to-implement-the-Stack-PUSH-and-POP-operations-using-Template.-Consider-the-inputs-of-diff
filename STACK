@@ -1,0 +1,64 @@
+Write a C++ program to implement the Stack (PUSH and POP) operations
+using Template. Consider the inputs of different data types
+(e.g.: integer, float, string, etc.) to verify the functionalities.
+Code:
+
+#include<iostream>
+#include<stack>
+using namespace std;
+
+template<class T>
+class Stack
+{
+private :
+stack<T> myStack;
+public :
+void push(T var)
+{
+myStack.push(var);
+}
+void pop()
+{
+
+myStack.pop();
+}
+T top()
+{
+T top=myStack.top();
+return top;
+}
+void print()
+{
+stack<T> temp=myStack;
+cout<<"\nThe elements in stack are : ";
+while(!temp.empty())
+{
+cout<<"\t"<<temp.top();
+temp.pop();
+}
+}
+
+};
+int main()
+{
+Stack<int> obj1;
+obj1.push(10);
+obj1.push(20);
+obj1.push(30);
+obj1.print();
+cout<<"\nThe top element in the stack : "<<obj1.top();
+obj1.pop();
+
+cout<<"\nAfter popping,";
+obj1.print();
+Stack<string> obj2;
+obj2.push("Word");
+obj2.push("String");
+obj2.push("Fancy");
+obj2.print();
+cout<<"\nThe top element in the stack : "<<obj2.top();
+obj2.pop();
+cout<<"\nAfter popping,";
+obj2.print();
+return 0;
+}
